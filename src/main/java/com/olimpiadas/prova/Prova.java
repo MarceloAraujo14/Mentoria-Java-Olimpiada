@@ -12,9 +12,12 @@ public class Prova {
     private String modalidade;
     private List<Atleta> atletas;
 
-    public List<Atleta> getResultado(){
+    public String getResultado(){
         Collections.sort(atletas);
-        return List.of(atletas.get(0), atletas.get(1), atletas.get(2));
+        return "Modalidade: " + modalidade + "\n" +
+                "Ouro: " + atletas.get(0) + "\n" +
+                "Prata: " + atletas.get(1) + "\n" +
+                "Bronze: " + atletas.get(2);
     }
 
     public Prova(String modalidade, List<Atleta> atletas) {
