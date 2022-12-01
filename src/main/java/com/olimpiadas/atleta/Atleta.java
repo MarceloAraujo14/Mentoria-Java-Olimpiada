@@ -42,7 +42,7 @@ public class Atleta implements Comparable<Atleta> {
         if(Objects.isNull(pais) || pais.isBlank()){
             throw new IllegalArgumentException(ERRO_MSG_PAIS_NULO);
         }
-        if (!pais.matches("[A-Za-z ]\\w{3,}")){
+        if (!pais.matches("[A-Za-z ]\\w{2,}")){
             throw new IllegalArgumentException(ERRO_MSG_PAIS_MIN_LETRAS);
         }
         return pais;
