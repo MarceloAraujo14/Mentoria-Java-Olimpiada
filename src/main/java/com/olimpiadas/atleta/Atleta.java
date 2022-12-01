@@ -32,7 +32,7 @@ public class Atleta implements Comparable<Atleta> {
         if(Objects.isNull(nome) || nome.isBlank()){
             throw new IllegalArgumentException(ERRO_MSG_NOME_NULO);
         }
-        if (!nome.matches("^((\\b[A-zÀ-ú']{2,40}\\b)\\s*){2,}$")){
+        if (!nome.matches("^((\\b[A-zA-Z']{2,40}\\b)\\s*){2,}$")){
             throw new IllegalArgumentException(ERRO_MSG_SOBRENOME_E_MIN_LETRAS);
         }
         return nome;

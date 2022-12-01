@@ -14,6 +14,10 @@ public class ProvaController {
 
     private final ProvaService provaService;
 
+    public void mainMenu(){
+
+    }
+
     public List<Atleta> criarProva(){
         List<Atleta> atletas = new ArrayList<>();
         int i = 0;
