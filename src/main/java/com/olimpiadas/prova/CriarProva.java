@@ -13,13 +13,20 @@ import java.util.Scanner;
 @AllArgsConstructor
 public class CriarProva {
 
-    public Prova criarProva(){
+    private final Scanner sc;
+
+    public Prova execute(){
         List<Atleta> atletas = new ArrayList<>();
         Prova prova = null;
-        int i = 0;
         int numAtletas = 10;
-        while (i < numAtletas) {
+        inserirAtletas(atletas, numAtletas);
+        prova = getProva(atletas, prova);
+        System.out.println(prova.getResultado());
+        return prova;
+    }
 
+    private void inserirAtletas(List<Atleta> atletas, int numAtletas) {
+        while (0 < numAtletas) {
             try{
                 System.out.print("Insira o nome do atleta: ");
                 String nome = reader();
@@ -31,13 +38,15 @@ public class CriarProva {
                 Atleta atleta = new Atleta(nome, pais, resultado);
                 atletas.add(atleta);
                 System.out.println("Atleta inserido: " + atleta);
-                i++;
+                numAtletas--;
             }catch (Exception e){
                 System.out.println(e.getMessage());
                 System.out.println("Tente novamente.");
             }
-
         }
+    }
+
+    private Prova getProva(List<Atleta> atletas, Prova prova) {
         while (Objects.isNull(prova)) {
             try {
                 System.out.print("Insira o nome da modalidade da prova:");
@@ -49,14 +58,10 @@ public class CriarProva {
                 System.out.println("Tente novamente.");
             }
         }
-        System.out.println(prova.getResultado());
         return prova;
     }
 
     private String reader(){
-        Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
-
-
 }
